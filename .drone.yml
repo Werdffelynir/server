@@ -468,7 +468,7 @@ services:
       matrix:
         DB: mysqlmb4
   smb-silvershell:
-    image: nextcloud-ci/samba:samba-1
+    image: nextcloudci/samba:samba-1
     environment:
       - SMB_USER=test
       - SMB_PASSWORD=test
