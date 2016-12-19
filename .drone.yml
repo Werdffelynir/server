@@ -466,8 +466,10 @@ services:
       matrix:
         DB: mysqlmb4
   smb-silvershell:
-    image: dperson/samba
-    command: [ "-u \"test;test\"" ]
+    image: silvershell/samba
+    environment:
+      - SMB_USER=test
+      - SMB_PASSWORD=test
     when:
       matrix:
         Samba: silvershell
