@@ -131,6 +131,8 @@ pipeline:
   sqlite-php5.6:
     image: nextcloudci/php5.6:php5.6-7
     commands:
+      - apt update
+      - apt install -y smbclient
       - NOCOVERAGE=true ./autotest-external.sh sqlite smb-silvershell
     when:
       matrix:
