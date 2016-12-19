@@ -33,12 +33,4 @@ return array(
 
 DELIM
 
-echo -n "Waiting for samba initialization"
-if ! "$thisFolder"/env/wait-for-connection 127.0.0.1 445 60; then
-    echo "[ERROR] Waited 60 seconds, no response" >&2
-    exit 1
-fi
 sleep 1
-
-
-
