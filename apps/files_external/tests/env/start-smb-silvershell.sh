@@ -19,14 +19,12 @@ if [ -z "$thisFolder" ]; then
     thisFolder="."
 fi;
 
-host=127.0.0.1
-
 cat > $thisFolder/config.smb.php <<DELIM
 <?php
 
 return array(
     'run'=>true,
-    'host'=>'$host',
+    'host'=>'127.0.0.1',
     'user'=>'test',
     'password'=>'test',
     'root'=>'',
@@ -36,14 +34,11 @@ return array(
 DELIM
 
 echo -n "Waiting for samba initialization"
-if ! "$thisFolder"/env/wait-for-connection ${host} 445 60; then
+if ! "$thisFolder"/env/wait-for-connection 127.0.0.1 445 60; then
     echo "[ERROR] Waited 60 seconds, no response" >&2
     exit 1
 fi
 sleep 1
 
-if [ -n "$DEBUG" ]; then
-    cat $thisFolder/config.smb.php
-fi
 
 
